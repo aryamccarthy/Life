@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Grid : NSObject
+@property (nonatomic, readonly) NSUInteger rows;
+@property (nonatomic, readonly) NSUInteger cols;
 
 @end

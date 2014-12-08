@@ -1,5 +1,5 @@
 //
-//  LifeModel.m
+//  BasicLifeModel.h
 //  Life
 //
 //  Created by Arya McCarthy on 12/8/14.
@@ -8,5 +8,6 @@
 
 #import "LifeModel.h"
 
-@implementation LifeModel
+@interface BasicLifeModel : LifeModel
+
 @end
