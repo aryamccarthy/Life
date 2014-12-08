@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface LifeModel : NSObject
--(BOOL)update;
+-(void)update;
 @end

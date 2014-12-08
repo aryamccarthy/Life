@@ -8,6 +8,7 @@
 
 #import "Grid.h"
 #import "LifeConstants.h"
+#import "NSMutableArray+initWithSize.h"
 
 @interface Grid ()
 @property (nonatomic, strong) NSMutableArray *elements;
@@ -22,7 +23,8 @@
   if (self) {
     self.rows = rows;
     self.cols = cols;
-    //TODO set size of array.
+    self.elements = [[NSMutableArray alloc]
+                     initWithSize:(self.rows * self.cols)];
   }
   return self;
 }
@@ -52,6 +54,13 @@
     return @0;
   }
   return self.elements[row * self.rows + self.cols];
+}
+
+- (void)setElementAt:(NSUInteger)row and:(NSUInteger)col to:(NSNumber *)value;
+{
+  if ([self inBounds:row and:col]) {
+    self.elements[row * self.rows + self.cols] = value;
+  }
 }
 
 - (BOOL)inBounds:(NSUInteger)row and:(NSUInteger)col
