@@ -58,4 +58,20 @@
   }
   self.board = newBoard;
 }
+
+- (NSString *)description
+{
+  NSString *output = @"\n";
+  for (int i = 0; i < self.board.rows; ++i) {
+    output = [output stringByAppendingString:@" "];
+    for (int j = 0; j < self.board.cols; ++j) {
+      NSNumber *age = [self.board elementAt:i and:j];
+      output = [output stringByAppendingString:[age stringValue]];
+      NSString *spacer = [age unsignedIntegerValue] > 9 ? @" " : @"  ";
+      output = [output stringByAppendingString:spacer];
+    }
+    output = [output stringByAppendingString:@"\n"];
+  }
+  return output;
+}
 @end

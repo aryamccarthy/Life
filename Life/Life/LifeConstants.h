@@ -9,8 +9,8 @@
 #ifndef Life_LifeConstants_h
 #define Life_LifeConstants_h
 
-const size_t kMaxAge = 12;
-const size_t kNumRows = 60;
-const size_t kNumCols = 40;
+static const size_t kMaxAge = 12;
+static const size_t kNumRows = 60;
+static const size_t kNumCols = 40;
 
 #endif

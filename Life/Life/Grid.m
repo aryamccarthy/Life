@@ -17,6 +17,8 @@
 @end
 
 @implementation Grid
+
+#pragma mark Initializers
 - (instancetype)initWithRows:(NSUInteger)rows columns:(NSUInteger)cols
 {
   self = [super init];
@@ -34,6 +36,8 @@
   return [self initWithRows:kNumRows columns:kNumCols];
 }
 
+#pragma mark Setters and Getters
+
 - (void)setRows:(NSUInteger)rows
 {
   if (rows != 0) {
@@ -48,20 +52,26 @@
   }
 }
 
+#pragma mark Indexing
+
 - (NSNumber *)elementAt:(NSUInteger)row and:(NSUInteger)col
 {
   if (![self inBounds:row and:col]) {
     return @0;
   }
-  return self.elements[row * self.rows + self.cols];
+  return self.elements[row * self.cols + col];
 }
 
 - (void)setElementAt:(NSUInteger)row and:(NSUInteger)col to:(NSNumber *)value;
 {
+  NSLog(@"row: %lu col: %lu", (unsigned long)row, (unsigned long)col);
+  NSLog(@"index: %lu", row * self.cols + col);
   if ([self inBounds:row and:col]) {
-    self.elements[row * self.rows + self.cols] = value;
+    self.elements[row * self.cols + col] = value;
   }
 }
+
+#pragma mark Helpers
 
 - (BOOL)inBounds:(NSUInteger)row and:(NSUInteger)col
 {
