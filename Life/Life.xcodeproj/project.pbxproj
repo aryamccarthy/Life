@@ -40,6 +40,7 @@
 		422813E91A364A5E0047F49B /* LifeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LifeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		422813EE1A364A5E0047F49B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		422813EF1A364A5E0047F49B /* LifeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LifeTests.m; sourceTree = "<group>"; };
+		422813F91A364B220047F49B /* LifeConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LifeConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +86,7 @@
 				422813D81A364A5E0047F49B /* AppDelegate.m */,
 				422813DA1A364A5E0047F49B /* ViewController.h */,
 				422813DB1A364A5E0047F49B /* ViewController.m */,
+				422813F91A364B220047F49B /* LifeConstants.h */,
 				422813DD1A364A5E0047F49B /* Main.storyboard */,
 				422813E01A364A5E0047F49B /* Images.xcassets */,
 				422813E21A364A5E0047F49B /* LaunchScreen.xib */,
