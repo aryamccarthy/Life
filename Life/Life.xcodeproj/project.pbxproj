@@ -15,6 +15,8 @@
 		422813E41A364A5E0047F49B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 422813E21A364A5E0047F49B /* LaunchScreen.xib */; };
 		422813F01A364A5E0047F49B /* LifeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 422813EF1A364A5E0047F49B /* LifeTests.m */; };
 		422813FC1A364BF80047F49B /* NSMutableArray+initWithSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 422813FB1A364BF80047F49B /* NSMutableArray+initWithSize.m */; };
+		422813FF1A364DA20047F49B /* LifeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 422813FE1A364DA20047F49B /* LifeModel.m */; };
+		422814021A3650F80047F49B /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = 422814011A3650F80047F49B /* Grid.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,10 @@
 		422813F91A364B220047F49B /* LifeConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LifeConstants.h; sourceTree = "<group>"; };
 		422813FA1A364BF80047F49B /* NSMutableArray+initWithSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+initWithSize.h"; sourceTree = "<group>"; };
 		422813FB1A364BF80047F49B /* NSMutableArray+initWithSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+initWithSize.m"; sourceTree = "<group>"; };
+		422813FD1A364DA20047F49B /* LifeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeModel.h; sourceTree = "<group>"; };
+		422813FE1A364DA20047F49B /* LifeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeModel.m; sourceTree = "<group>"; };
+		422814001A3650F80047F49B /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
+		422814011A3650F80047F49B /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grid.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,10 @@
 				422813F91A364B220047F49B /* LifeConstants.h */,
 				422813FA1A364BF80047F49B /* NSMutableArray+initWithSize.h */,
 				422813FB1A364BF80047F49B /* NSMutableArray+initWithSize.m */,
+				422813FD1A364DA20047F49B /* LifeModel.h */,
+				422813FE1A364DA20047F49B /* LifeModel.m */,
+				422814001A3650F80047F49B /* Grid.h */,
+				422814011A3650F80047F49B /* Grid.m */,
 				422813DD1A364A5E0047F49B /* Main.storyboard */,
 				422813E01A364A5E0047F49B /* Images.xcassets */,
 				422813E21A364A5E0047F49B /* LaunchScreen.xib */,
@@ -227,7 +237,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				422813FC1A364BF80047F49B /* NSMutableArray+initWithSize.m in Sources */,
+				422814021A3650F80047F49B /* Grid.m in Sources */,
 				422813DC1A364A5E0047F49B /* ViewController.m in Sources */,
+				422813FF1A364DA20047F49B /* LifeModel.m in Sources */,
 				422813D91A364A5E0047F49B /* AppDelegate.m in Sources */,
 				422813D61A364A5E0047F49B /* main.m in Sources */,
 			);
