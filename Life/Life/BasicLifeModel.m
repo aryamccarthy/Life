@@ -19,7 +19,7 @@
 - (Grid *)board
 {
   if (!_board) {
-    _board = [[Grid alloc] init];
+    _board = [[Grid alloc] initWithRandomValues];
   }
   return _board;
 }

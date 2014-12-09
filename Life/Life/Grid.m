@@ -36,6 +36,13 @@
   return [self initWithRows:kNumRows columns:kNumCols];
 }
 
+- (instancetype)initWithRandomValues
+{
+  self = [self init];
+  [self randomize];
+  return self;
+}
+
 #pragma mark Setters and Getters
 
 - (void)setRows:(NSUInteger)rows
@@ -64,14 +71,19 @@
 
 - (void)setElementAt:(NSUInteger)row and:(NSUInteger)col to:(NSNumber *)value;
 {
-  NSLog(@"row: %lu col: %lu", (unsigned long)row, (unsigned long)col);
-  NSLog(@"index: %lu", row * self.cols + col);
   if ([self inBounds:row and:col]) {
     self.elements[row * self.cols + col] = value;
   }
 }
 
 #pragma mark Helpers
+
+- (void)randomize
+{
+  for (NSUInteger i = 0; i < [self.elements count]; ++i) {
+    self.elements[i] = [NSNumber numberWithInteger:(arc4random() % 2)];
+  }
+}
 
 - (BOOL)inBounds:(NSUInteger)row and:(NSUInteger)col
 {
