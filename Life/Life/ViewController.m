@@ -28,18 +28,27 @@
   return _model;
 }
 
-- (void)viewDidLoad {
-  [super viewDidLoad];
+- (void)initializeGrid {
   // Do any additional setup after loading the view, typically from a nib.
-  self.navigationController.navigationBar.translucent = YES;
+  UIColor *baseColor = [UIColor colorWithRed:13/255.0
+                                      green:112/255.0
+                                       blue:0/255.0
+                                      alpha:1.0];
   for (int i = 0; i < self.model.size.height; ++i) {
     for (int j = 0; j < self.model.size.width; ++j) {
-      UIView *cell = [[UIView alloc] initWithFrame:CGRectMake(8 * j, 8 * i, 8, 8)];
-      cell.backgroundColor = self.view.window.tintColor;//[UIColor colorWithRed:13/255.0 green:112/255.0 blue:0/255.0 alpha:1.0];
-      cell.alpha = [[self.model valueAtRow:i and:j] doubleValue]/kMaxAge;
+      double age = (double)[[self.model valueAtRow:i and:j] unsignedIntegerValue];
+
+      UIView *cell = [[UIView alloc] initWithFrame:CGRectMake(kCellDimension * j, kCellDimension * i, kCellDimension, kCellDimension)];
+      cell.backgroundColor = baseColor;
+      cell.alpha = age == 0 ? 0 : 1 - age/kMaxAge;
       [self.container addSubview:cell];
     }
   }
+}
+
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  [self initializeGrid];
   [self speedButtonPressed:self.speedLabel];
 }
 
@@ -75,17 +84,20 @@
 
 - (void)update
 {
-  [self.model update];
-  [self matchDisplayToModel];
+  if (self.navigationController.visibleViewController == self) {
+    [self.model update];
+    [self matchDisplayToModel];
+  }
 }
 
 - (void)matchDisplayToModel
 {
   for (UIView *view in self.container.subviews)
   {
-    NSUInteger row = view.frame.origin.y / 8;
-    NSUInteger col = view.frame.origin.x / 8;
-    view.alpha = [[self.model valueAtRow:row and:col] doubleValue] / kMaxAge;
+    NSUInteger row = view.frame.origin.y / kCellDimension;
+    NSUInteger col = view.frame.origin.x / kCellDimension;
+    double age = (double)[[self.model valueAtRow:row and:col] unsignedIntegerValue];
+    view.alpha = age == 0 ? 0 : 1 - age/kMaxAge;
   }
 }
 
@@ -94,9 +106,4 @@
   // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)tap:(UITapGestureRecognizer *)sender {
-  NSLog(@"Tapped.");
-  [self.model update];
-  NSLog(@"%@", self.model.description);
-}
 @end
