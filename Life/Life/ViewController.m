@@ -13,7 +13,7 @@
 
 @interface ViewController ()
 @property (nonatomic, strong) LifeModel *model;
-@property (weak, nonatomic) IBOutlet UIView *container;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (strong, nonatomic) NSTimer *timer;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *speedLabel;
 @property (strong, nonatomic) NSArray *colors;
@@ -26,29 +26,6 @@ UIColor* colorFromRGB(NSUInteger r, NSUInteger g, NSUInteger b)
 
 @implementation ViewController
 
-//! Dependency minimization breaks down here.
-- (NSArray *)colors
-{
-  if (!_colors) {
-    NSMutableArray *colorArray = [NSMutableArray new];
-    [colorArray addObject:[UIColor whiteColor]]; // Age 0 is blank.
-    [colorArray addObject:colorFromRGB(13, 112, 0)]; // 1
-    [colorArray addObject:colorFromRGB(35, 125, 23)]; // 2
-    [colorArray addObject:colorFromRGB(57, 138, 46)]; // 3
-    [colorArray addObject:colorFromRGB(79, 151, 69)]; // 4
-    [colorArray addObject:colorFromRGB(101, 164, 92)]; // 5
-    [colorArray addObject:colorFromRGB(123, 177, 115)]; // 6
-    [colorArray addObject:colorFromRGB(145, 190, 139)]; // 7
-    [colorArray addObject:colorFromRGB(167, 203, 162)]; // 8
-    [colorArray addObject:colorFromRGB(189, 216, 185)]; // 9
-    [colorArray addObject:colorFromRGB(211, 229, 208)]; // 10
-    [colorArray addObject:colorFromRGB(233, 242, 231)]; // 11
-    [colorArray addObject:colorFromRGB(255, 255, 255)]; // 12
-    _colors = colorArray;
-  }
-  return _colors;
-}
-
 - (LifeModel *)model
 {
   if (!_model) {
@@ -59,15 +36,16 @@ UIColor* colorFromRGB(NSUInteger r, NSUInteger g, NSUInteger b)
 
 - (void)initializeGrid {
   // Do any additional setup after loading the view, typically from a nib.
+  UIColor *baseColor = colorFromRGB(13, 112, 0);
   for (int i = 0; i < self.model.size.height; ++i) {
     for (int j = 0; j < self.model.size.width; ++j) {
       NSUInteger age = [[self.model valueAtRow:i and:j] unsignedIntegerValue];
 
       UIView *cell = [[UIView alloc] initWithFrame:CGRectMake(kCellDimension * j, kCellDimension * i, kCellDimension, kCellDimension)];
-      cell.backgroundColor = self.colors[age];
-      //cell.backgroundColor = baseColor;
-      //cell.alpha = age == 0 ? 0 : 1 - age/kMaxAge;
-      [self.container addSubview:cell];
+      //cell.backgroundColor = self.colors[age];
+      cell.backgroundColor = baseColor;
+      cell.alpha = age == 0 ? 0 : 1 - (age-1.0)/kMaxAge;
+      [self.containerView addSubview:cell];
     }
   }
 }
@@ -131,7 +109,7 @@ UIColor* colorFromRGB(NSUInteger r, NSUInteger g, NSUInteger b)
 
 - (BOOL)hasTerminated
 {
-  for (UIView *view in self.container.subviews)
+  for (UIView *view in self.containerView.subviews)
     if (view.alpha) {
       return false;
     }
@@ -140,14 +118,12 @@ UIColor* colorFromRGB(NSUInteger r, NSUInteger g, NSUInteger b)
 
 - (void)matchDisplayToModel
 {
-  for (UIView *view in self.container.subviews)
+  for (UIView *view in self.containerView.subviews)
   {
     NSUInteger row = view.frame.origin.y / kCellDimension;
     NSUInteger col = view.frame.origin.x / kCellDimension;
     NSUInteger age = [[self.model valueAtRow:row and:col] unsignedIntegerValue];
-    view.backgroundColor = self.colors[age];
-    //double age = (double)[[self.model valueAtRow:row and:col] unsignedIntegerValue];
-    //view.alpha = age == 0 ? 0 : 1 - age/kMaxAge;
+    view.alpha = age == 0 ? 0 : 1 - (age-1.0)/kMaxAge;
   }
 }
 

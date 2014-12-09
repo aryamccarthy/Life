@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="feK-Pg-mbT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Life-->
@@ -17,15 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSt-j3-JZ3">
-                                <rect key="frame" x="562" y="558" width="22" height="22"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="vjb-av-TT1" kind="show" id="bAj-pU-an7"/>
-                                </connections>
-                            </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N63-w4-zL9">
                                 <rect key="frame" x="140" y="64" width="320" height="504"/>
                                 <constraints>
@@ -40,11 +30,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="gSt-j3-JZ3" firstAttribute="trailing" secondItem="TPT-Vw-Ly5" secondAttribute="trailingMargin" id="G5b-0k-uij"/>
                             <constraint firstItem="N63-w4-zL9" firstAttribute="bottom" secondItem="hXR-Ik-N0h" secondAttribute="top" constant="-40" id="QpT-rk-GOc"/>
                             <constraint firstItem="N63-w4-zL9" firstAttribute="centerX" secondItem="TPT-Vw-Ly5" secondAttribute="centerX" id="R3b-Xx-fda"/>
                             <constraint firstItem="N63-w4-zL9" firstAttribute="top" secondItem="5Wz-or-wN6" secondAttribute="bottom" constant="216" id="eQ2-Su-PXs"/>
-                            <constraint firstAttribute="bottom" secondItem="gSt-j3-JZ3" secondAttribute="bottom" constant="20" symbolic="YES" id="kd0-gx-KqE"/>
                             <constraint firstItem="N63-w4-zL9" firstAttribute="leading" secondItem="TPT-Vw-Ly5" secondAttribute="leading" constant="140" id="lJK-6I-gH2"/>
                             <constraint firstItem="N63-w4-zL9" firstAttribute="top" secondItem="5Wz-or-wN6" secondAttribute="bottom" id="rKY-nu-A4F"/>
                         </constraints>
@@ -72,7 +60,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="container" destination="N63-w4-zL9" id="Fuy-eN-wrQ"/>
+                        <outlet property="containerView" destination="N63-w4-zL9" id="rpy-Tl-Z0S"/>
                         <outlet property="speedLabel" destination="bbu-gO-c9c" id="ZcG-Md-vov"/>
                     </connections>
                 </viewController>
@@ -84,61 +72,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2772" y="44"/>
-        </scene>
-        <!--About-->
-        <scene sceneID="PdI-TM-otZ">
-            <objects>
-                <viewController title="About" id="vjb-av-TT1" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="6tN-Px-VQJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="Y1v-ao-LJ2"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="c2D-m7-rpc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQM-jO-XBf">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="688"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">This is an implementation of a hyped-up version of the game of Life, originally conceived by the British mathematician J.H. Conway in 1970 and popularized by Martin Gardner in his Scientific American column. The game is a simulation that models the life cycle of bacteria. Given an initial pattern, the game simulates the birth and death of future generations using simple rules. Think of it as a Lava Lamp for mathematicians.
-
-The game is played on a two-dimensional grid. Each grid location is either empty or occupied by a single cell. A location's neighbors are any cells in the surrounding eight adjacent locations.
-
-
-The simulation starts with an initial pattern of cells on the grid and computes successive generations of cells according to the following rules:
-
-1. A location that has zero or one neighbors will be empty in the next generation. If a cell was in that location, it dies of loneliness.
-2. A location with two neighbors is stable—that is, if it contained a cell, it still contains a cell. If it was empty, it's still empty.
-3. A location with three neighbors will contain a cell in the next generation. If it was unoccupied before, a new cell is born. If it currently contains a cell, the cell remains. Good times.
-4. A location with four or more neighbors will be empty in the next generation. If there was a cell in that location, it dies of overcrowding.
-5. The births and deaths that transform one generation to the next must all take effect simultaneously. Thus, when computing a new generation, new births and deaths in that generation don’t impact other births and deaths in that generation.
-
-Each generation that a cell lives through adds another year to its age. A cell that has just been born has age 1. If it makes it through the next generation, that cell has age 2, on the following iteration it would be 3 and so on. During the animation, cells will fade as they age to depict the cell life cycle.
-
-This project is an iOS port of my attempt at Stanford's CS106B Assignment 1: The Game of Life, by Julie Zelenski. 
-
-Description of Conway's Game of Life from http://web.stanford.edu/class/archive/cs/cs106b/cs106b.1132/handouts/07-Assignment-1-Life.pdf</string>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="sQM-jO-XBf" firstAttribute="leading" secondItem="c2D-m7-rpc" secondAttribute="leading" id="CWa-Mt-aU6"/>
-                            <constraint firstItem="sQM-jO-XBf" firstAttribute="top" secondItem="c2D-m7-rpc" secondAttribute="top" id="eEg-mL-hBz"/>
-                            <constraint firstAttribute="bottom" secondItem="sQM-jO-XBf" secondAttribute="bottom" id="jK0-zC-31O"/>
-                            <constraint firstAttribute="trailing" secondItem="sQM-jO-XBf" secondAttribute="trailing" id="rch-n4-aZ0"/>
-                        </constraints>
-                    </view>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="75m-Fz-tO2"/>
-                    </toolbarItems>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zIV-0U-PNX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3637" y="67"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="zRJ-Xa-ElE">
@@ -157,6 +90,7 @@ Description of Conway's Game of Life from http://web.stanford.edu/class/archive/
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bm7-Pe-pvm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2547" y="724"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hdi-h8-Ydq">
