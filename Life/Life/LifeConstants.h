@@ -10,7 +10,12 @@
 #define Life_LifeConstants_h
 
 static const size_t kMaxAge = 12;
-static const size_t kNumRows = 71;
-static const size_t kNumCols = 40;
+
+// This times kNumRows and kNumCols should
+// equal the dimensions of the view.
+static const size_t kCellDimension = 8;
+
+static const size_t kNumRows = 504/kCellDimension;
+static const size_t kNumCols = 320/kCellDimension;
 
 #endif
