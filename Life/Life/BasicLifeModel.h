@@ -8,6 +8,6 @@
 
 #import "LifeModel.h"
 
-@interface BasicLifeModel : LifeModel
+@interface BasicLifeModel : NSObject <LifeModel>
 
 @end

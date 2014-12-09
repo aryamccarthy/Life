@@ -12,7 +12,7 @@
 #import "BasicLifeModel.h"
 
 @interface ViewController ()
-@property (nonatomic, strong) LifeModel *model;
+@property (nonatomic, strong) id<LifeModel> model;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (strong, nonatomic) NSTimer *timer;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *speedLabel;
@@ -26,7 +26,7 @@ UIColor* colorFromRGB(NSUInteger r, NSUInteger g, NSUInteger b)
 
 @implementation ViewController
 
-- (LifeModel *)model
+- (id<LifeModel>)model
 {
   if (!_model) {
     _model = [[BasicLifeModel alloc] init];
