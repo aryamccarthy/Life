@@ -9,6 +9,7 @@
 #import "BasicLifeModel.h"
 #import "Grid.h"
 #import "LifeConstants.h"
+#import <UIKit/UIKit.h>
 
 @interface BasicLifeModel ()
 @property (nonatomic, strong) Grid *board;
@@ -57,6 +58,16 @@
     }
   }
   self.board = newBoard;
+}
+
+- (CGSize)size
+{
+  return CGSizeMake(self.board.cols, self.board.rows);
+}
+
+- (NSNumber *)valueAtRow:(NSUInteger)row and:(NSUInteger)col
+{
+  return [self.board elementAt:row and:col];
 }
 
 - (NSString *)description

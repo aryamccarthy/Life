@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface LifeModel : NSObject
--(void)update;
+- (void)update;
+- (CGSize)size;
+- (NSNumber *)valueAtRow:(NSUInteger)row and:(NSUInteger)col;
 @end

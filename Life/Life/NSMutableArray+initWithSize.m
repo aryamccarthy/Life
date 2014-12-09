@@ -11,7 +11,7 @@
 @implementation NSMutableArray (initWithSize)
 - (instancetype)initWithSize:(NSUInteger)size
 {
-  self = [self init];
+  self = [self initWithCapacity:size];
   for (NSUInteger i = 0; i < size; ++i) {
     [self addObject:@0];
   }

@@ -16,4 +16,18 @@
                                userInfo:nil];
 
 }
+- (CGSize)size
+{
+  @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                 reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
+                               userInfo:nil];
+
+}
+- (NSNumber *)valueAtRow:(NSUInteger)row and:(NSUInteger)col
+{
+  @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                 reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
+                               userInfo:nil];
+
+}
 @end

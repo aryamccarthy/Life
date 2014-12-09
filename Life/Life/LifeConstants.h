@@ -10,7 +10,7 @@
 #define Life_LifeConstants_h
 
 static const size_t kMaxAge = 12;
-static const size_t kNumRows = 60;
+static const size_t kNumRows = 63;
 static const size_t kNumCols = 40;
 
 #endif

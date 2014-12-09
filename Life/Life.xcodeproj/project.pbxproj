@@ -18,6 +18,7 @@
 		422813FF1A364DA20047F49B /* LifeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 422813FE1A364DA20047F49B /* LifeModel.m */; };
 		422814021A3650F80047F49B /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = 422814011A3650F80047F49B /* Grid.m */; };
 		422814051A3653F10047F49B /* BasicLifeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 422814041A3653F10047F49B /* BasicLifeModel.m */; };
+		422814081A368AB60047F49B /* LifeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 422814071A368AB60047F49B /* LifeCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		422814011A3650F80047F49B /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grid.m; sourceTree = "<group>"; };
 		422814031A3653F10047F49B /* BasicLifeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicLifeModel.h; sourceTree = "<group>"; };
 		422814041A3653F10047F49B /* BasicLifeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicLifeModel.m; sourceTree = "<group>"; };
+		422814061A368AB60047F49B /* LifeCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeCollectionViewController.h; sourceTree = "<group>"; };
+		422814071A368AB60047F49B /* LifeCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeCollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,8 @@
 				422813D81A364A5E0047F49B /* AppDelegate.m */,
 				422813DA1A364A5E0047F49B /* ViewController.h */,
 				422813DB1A364A5E0047F49B /* ViewController.m */,
+				422814061A368AB60047F49B /* LifeCollectionViewController.h */,
+				422814071A368AB60047F49B /* LifeCollectionViewController.m */,
 				422813F91A364B220047F49B /* LifeConstants.h */,
 				422813FA1A364BF80047F49B /* NSMutableArray+initWithSize.h */,
 				422813FB1A364BF80047F49B /* NSMutableArray+initWithSize.m */,
@@ -245,6 +250,7 @@
 				422814021A3650F80047F49B /* Grid.m in Sources */,
 				422813DC1A364A5E0047F49B /* ViewController.m in Sources */,
 				422813FF1A364DA20047F49B /* LifeModel.m in Sources */,
+				422814081A368AB60047F49B /* LifeCollectionViewController.m in Sources */,
 				422814051A3653F10047F49B /* BasicLifeModel.m in Sources */,
 				422813D91A364A5E0047F49B /* AppDelegate.m in Sources */,
 				422813D61A364A5E0047F49B /* main.m in Sources */,
