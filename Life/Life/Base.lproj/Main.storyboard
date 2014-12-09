@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="feK-Pg-mbT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Life-->
@@ -17,22 +18,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N63-w4-zL9">
-                                <rect key="frame" x="140" y="96" width="320" height="504"/>
+                                <rect key="frame" x="140" y="32" width="320" height="568"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="BUZ-d3-9cm"/>
-                                    <constraint firstAttribute="height" constant="504" id="Khz-3C-qP7"/>
+                                    <constraint firstAttribute="height" constant="568" id="Khz-3C-qP7"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="RmA-6e-Tgv" kind="embed" id="Pr0-Xd-BQ9"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJ9-13-EWa">
+                                <rect key="frame" x="514" y="562" width="70" height="30"/>
+                                <state key="normal" title="Settings &gt;">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="WPF-lo-5n1" kind="show" id="9Dc-mx-DkQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="N63-w4-zL9" firstAttribute="bottom" secondItem="hXR-Ik-N0h" secondAttribute="top" id="QpT-rk-GOc"/>
                             <constraint firstItem="N63-w4-zL9" firstAttribute="centerX" secondItem="TPT-Vw-Ly5" secondAttribute="centerX" id="R3b-Xx-fda"/>
+                            <constraint firstItem="VJ9-13-EWa" firstAttribute="trailing" secondItem="TPT-Vw-Ly5" secondAttribute="trailingMargin" id="XAQ-8p-dvD"/>
                             <constraint firstItem="N63-w4-zL9" firstAttribute="top" secondItem="5Wz-or-wN6" secondAttribute="bottom" constant="216" id="eQ2-Su-PXs"/>
+                            <constraint firstItem="hXR-Ik-N0h" firstAttribute="top" secondItem="VJ9-13-EWa" secondAttribute="bottom" constant="8" symbolic="YES" id="hSE-8R-Cta"/>
                             <constraint firstItem="N63-w4-zL9" firstAttribute="leading" secondItem="TPT-Vw-Ly5" secondAttribute="leading" constant="140" id="lJK-6I-gH2"/>
                         </constraints>
                         <variation key="default">
@@ -51,9 +63,15 @@
                                 <action selector="resetPressed:" destination="ugD-ql-FJH" id="JdA-d9-lIF"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Paused" id="bbu-gO-c9c">
+                            <connections>
+                                <action selector="speedButtonPressed:" destination="ugD-ql-FJH" id="bfq-V1-mrd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="container" destination="N63-w4-zL9" id="Fuy-eN-wrQ"/>
+                        <outlet property="speedLabel" destination="bbu-gO-c9c" id="ZcG-Md-vov"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wxx-Wt-4Zt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -66,6 +84,51 @@
             <point key="canvasLocation" x="2772" y="44"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="szE-nc-6wS">
+            <objects>
+                <viewController id="WPF-lo-5n1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YLP-Bz-kdl"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZUY-lU-b4N"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mWO-pr-cOB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Speed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Gt-S9-fve">
+                                <rect key="frame" x="244" y="72" width="112" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="EMY-Nj-IkK"/>
+                                    <constraint firstAttribute="width" constant="112" id="K2A-Ug-wTO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Bns-6D-QOj">
+                                <rect key="frame" x="16" y="101" width="568" height="29"/>
+                                <segments>
+                                    <segment title="Fast"/>
+                                    <segment title="Slow"/>
+                                    <segment title="Paused"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bns-6D-QOj" firstAttribute="centerX" secondItem="3Gt-S9-fve" secondAttribute="centerX" id="PdV-H4-eSM"/>
+                            <constraint firstItem="3Gt-S9-fve" firstAttribute="top" secondItem="YLP-Bz-kdl" secondAttribute="bottom" constant="8" symbolic="YES" id="eNx-ZV-qmv"/>
+                            <constraint firstItem="Bns-6D-QOj" firstAttribute="top" secondItem="3Gt-S9-fve" secondAttribute="bottom" constant="8" symbolic="YES" id="hWB-ui-gg7"/>
+                            <constraint firstItem="Bns-6D-QOj" firstAttribute="leading" secondItem="mWO-pr-cOB" secondAttribute="leadingMargin" id="kcw-fx-Q9v"/>
+                            <constraint firstItem="3Gt-S9-fve" firstAttribute="centerX" secondItem="mWO-pr-cOB" secondAttribute="centerX" id="xcM-fE-KTb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nif-3L-yQy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3394" y="402"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="zRJ-Xa-ElE">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="RmA-6e-Tgv" sceneMemberID="viewController">
@@ -74,7 +137,7 @@
                         <viewControllerLayoutGuide type="bottom" id="J02-UY-o4f"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="8DD-ao-iyc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -102,4 +165,5 @@
             <point key="canvasLocation" x="1960" y="44"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.050980392156862744" green="0.4392156862745098" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
