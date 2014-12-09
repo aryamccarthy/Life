@@ -87,7 +87,29 @@
   if (self.navigationController.visibleViewController == self) {
     [self.model update];
     [self matchDisplayToModel];
+    if ([self hasTerminated]) {
+      [self.timer invalidate];
+      UIAlertController *doneNotifier = [UIAlertController alertControllerWithTitle:@"Game over" message:@"The simulation will not update anymore from this point; hit Reset to start another round." preferredStyle:UIAlertControllerStyleAlert];
+      UIAlertAction *reset = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        [self resetPressed:nil];
+        if (self.timer) {
+          self.timer = [NSTimer timerWithTimeInterval:self.timer.timeInterval target:self selector:@selector(update) userInfo:nil repeats:YES];
+          [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+        }
+      }];
+      [doneNotifier addAction:reset];
+      [self presentViewController:doneNotifier animated:YES completion:nil];
+    }
   }
+}
+
+- (BOOL)hasTerminated
+{
+  for (UIView *view in self.container.subviews)
+    if (view.alpha) {
+      return false;
+    }
+  return true;
 }
 
 - (void)matchDisplayToModel
