@@ -65,7 +65,7 @@
                                 <action selector="resetPressed:" destination="ugD-ql-FJH" id="JdA-d9-lIF"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Paused" id="bbu-gO-c9c">
+                        <barButtonItem key="rightBarButtonItem" title="Fast" id="bbu-gO-c9c">
                             <connections>
                                 <action selector="speedButtonPressed:" destination="ugD-ql-FJH" id="bfq-V1-mrd"/>
                             </connections>

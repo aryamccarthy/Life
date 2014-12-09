@@ -32,24 +32,23 @@
     for (NSUInteger j = 0; j < newBoard.cols; ++j) {
       NSUInteger neighbors = [self.board countNeighbors:i and:j];
       NSNumber *age = [self.board elementAt:i and:j];
+      NSUInteger rawAge = [age unsignedIntegerValue];
       switch (neighbors) {
         case 2:
-          if (age < [NSNumber numberWithUnsignedInteger:kMaxAge]) {
-            NSUInteger rawAge = [age unsignedIntegerValue];
-            rawAge += (rawAge != 0) ? 1 : 0;
-            [newBoard setElementAt:i
-                               and:j
-                                to:[NSNumber numberWithUnsignedInteger:rawAge]];
+          if (rawAge < kMaxAge && rawAge != 0) {
+            rawAge += 1;
           }
+          [newBoard setElementAt:i
+                             and:j
+                              to:[NSNumber numberWithUnsignedInteger:rawAge]];
           break;
         case 3:
-          if (age < [NSNumber numberWithUnsignedInteger:kMaxAge]) {
-            NSUInteger rawAge = [age unsignedIntegerValue];
+          if (rawAge < kMaxAge) {
             rawAge += 1;
-            [newBoard setElementAt:i
-                               and:j
-                                to:[NSNumber numberWithUnsignedInteger:rawAge]];
           }
+          [newBoard setElementAt:i
+                             and:j
+                              to:[NSNumber numberWithUnsignedInteger:rawAge]];
           break;
         default:
           [newBoard setElementAt:i and:j to:@0];
