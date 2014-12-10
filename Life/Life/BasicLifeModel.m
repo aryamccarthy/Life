@@ -17,6 +17,16 @@
 
 @implementation BasicLifeModel
 
+- (instancetype)initWithRows:(NSUInteger)rows cols:(NSUInteger)cols
+{
+  self = [super init];
+  if (self) {
+    [self setBoard:[[Grid alloc] initWithRows:rows columns:cols]];
+    [self.board randomize];
+  }
+  return self;
+}
+
 - (Grid *)board
 {
   if (!_board) {
@@ -27,7 +37,7 @@
 
 - (void)update
 {
-  Grid *newBoard = [[Grid alloc] init];
+  Grid *newBoard = [[Grid alloc] initWithRows:self.board.rows columns:self.board.cols];
   for (NSUInteger i = 0; i < newBoard.rows; ++i) {
     for (NSUInteger j = 0; j < newBoard.cols; ++j) {
       NSUInteger neighbors = [self.board countNeighbors:i and:j];

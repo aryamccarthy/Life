@@ -108,26 +108,11 @@
 			children = (
 				422813D71A364A5E0047F49B /* AppDelegate.h */,
 				422813D81A364A5E0047F49B /* AppDelegate.m */,
-				422813DA1A364A5E0047F49B /* ViewController.h */,
-				422813DB1A364A5E0047F49B /* ViewController.m */,
-				4230768E1A37C466002867D8 /* TimerDelegate.h */,
-				4230768F1A37C493002867D8 /* TimerControl.h */,
-				423076901A37C493002867D8 /* TimerControl.m */,
-				423076811A37B403002867D8 /* LifeViewController.h */,
-				423076821A37B403002867D8 /* LifeViewController.m */,
-				4230768A1A37BFFB002867D8 /* LifeViewControllerProtocol.h */,
-				423076871A37B958002867D8 /* LifeCellView.h */,
-				423076881A37B958002867D8 /* LifeCellView.m */,
+				42E302671A37D0BE002BABF4 /* Controller */,
+				42E302661A37D0B3002BABF4 /* Timer */,
+				42E302651A37D0A4002BABF4 /* View */,
 				422813F91A364B220047F49B /* LifeConstants.h */,
-				422813FA1A364BF80047F49B /* NSMutableArray+initWithSize.h */,
-				422813FB1A364BF80047F49B /* NSMutableArray+initWithSize.m */,
-				4230768B1A37C339002867D8 /* TimerControlButton.h */,
-				4230768C1A37C339002867D8 /* TimerControlButton.m */,
-				423076801A37A567002867D8 /* LifeModel.h */,
-				422814031A3653F10047F49B /* BasicLifeModel.h */,
-				422814041A3653F10047F49B /* BasicLifeModel.m */,
-				422814001A3650F80047F49B /* Grid.h */,
-				422814011A3650F80047F49B /* Grid.m */,
+				42E302681A37D0DE002BABF4 /* Model */,
 				422813DD1A364A5E0047F49B /* Main.storyboard */,
 				422813E01A364A5E0047F49B /* Images.xcassets */,
 				422813E21A364A5E0047F49B /* LaunchScreen.xib */,
@@ -160,6 +145,53 @@
 				422813EE1A364A5E0047F49B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		42E302651A37D0A4002BABF4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				423076871A37B958002867D8 /* LifeCellView.h */,
+				423076881A37B958002867D8 /* LifeCellView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		42E302661A37D0B3002BABF4 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				4230768E1A37C466002867D8 /* TimerDelegate.h */,
+				4230768F1A37C493002867D8 /* TimerControl.h */,
+				423076901A37C493002867D8 /* TimerControl.m */,
+				4230768B1A37C339002867D8 /* TimerControlButton.h */,
+				4230768C1A37C339002867D8 /* TimerControlButton.m */,
+			);
+			name = Timer;
+			sourceTree = "<group>";
+		};
+		42E302671A37D0BE002BABF4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				422813DA1A364A5E0047F49B /* ViewController.h */,
+				422813DB1A364A5E0047F49B /* ViewController.m */,
+				423076811A37B403002867D8 /* LifeViewController.h */,
+				423076821A37B403002867D8 /* LifeViewController.m */,
+				4230768A1A37BFFB002867D8 /* LifeViewControllerProtocol.h */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		42E302681A37D0DE002BABF4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				422813FA1A364BF80047F49B /* NSMutableArray+initWithSize.h */,
+				422813FB1A364BF80047F49B /* NSMutableArray+initWithSize.m */,
+				423076801A37A567002867D8 /* LifeModel.h */,
+				422814031A3653F10047F49B /* BasicLifeModel.h */,
+				422814041A3653F10047F49B /* BasicLifeModel.m */,
+				422814001A3650F80047F49B /* Grid.h */,
+				422814011A3650F80047F49B /* Grid.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

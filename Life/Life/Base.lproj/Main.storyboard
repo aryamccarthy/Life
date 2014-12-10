@@ -17,11 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N63-w4-zL9">
-                                <rect key="frame" x="140" y="64" width="320" height="504"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="BUZ-d3-9cm"/>
-                                    <constraint firstAttribute="height" constant="504" id="Khz-3C-qP7"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <connections>
                                     <segue destination="RmA-6e-Tgv" kind="embed" id="Pr0-Xd-BQ9"/>
                                 </connections>
@@ -30,11 +26,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="N63-w4-zL9" secondAttribute="trailing" id="BBe-Rb-H63"/>
+                            <constraint firstItem="N63-w4-zL9" firstAttribute="bottom" secondItem="hXR-Ik-N0h" secondAttribute="top" id="FE0-yo-oo0"/>
                             <constraint firstItem="N63-w4-zL9" firstAttribute="bottom" secondItem="hXR-Ik-N0h" secondAttribute="top" constant="-40" id="QpT-rk-GOc"/>
-                            <constraint firstItem="N63-w4-zL9" firstAttribute="centerX" secondItem="TPT-Vw-Ly5" secondAttribute="centerX" id="R3b-Xx-fda"/>
                             <constraint firstItem="N63-w4-zL9" firstAttribute="top" secondItem="5Wz-or-wN6" secondAttribute="bottom" constant="216" id="eQ2-Su-PXs"/>
+                            <constraint firstItem="N63-w4-zL9" firstAttribute="top" secondItem="5Wz-or-wN6" secondAttribute="bottom" id="eqy-E9-zZE"/>
                             <constraint firstItem="N63-w4-zL9" firstAttribute="leading" secondItem="TPT-Vw-Ly5" secondAttribute="leading" constant="140" id="lJK-6I-gH2"/>
-                            <constraint firstItem="N63-w4-zL9" firstAttribute="top" secondItem="5Wz-or-wN6" secondAttribute="bottom" id="rKY-nu-A4F"/>
+                            <constraint firstItem="N63-w4-zL9" firstAttribute="leading" secondItem="TPT-Vw-Ly5" secondAttribute="leading" id="nKz-2c-VZ0"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -59,10 +57,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="containerView" destination="N63-w4-zL9" id="rpy-Tl-Z0S"/>
-                        <outlet property="speedLabel" destination="bbu-gO-c9c" id="ZcG-Md-vov"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wxx-Wt-4Zt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Oae-jc-Haf">
@@ -82,7 +76,7 @@
                         <viewControllerLayoutGuide type="bottom" id="J02-UY-o4f"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="8DD-ao-iyc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

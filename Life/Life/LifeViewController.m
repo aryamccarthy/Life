@@ -20,7 +20,12 @@
 
 - (id<LifeModel>)makeModel
 {
-  return [[BasicLifeModel alloc] init];
+  [self.view setNeedsDisplay];
+  [self.view layoutIfNeeded];
+  NSUInteger rows = self.view.bounds.size.height / kCellDimension;
+  NSUInteger cols = self.view.bounds.size.width / kCellDimension;
+  NSLog(@"%@", self.view.superview.class);
+  return [[BasicLifeModel alloc] initWithRows:rows cols:cols];
 }
 
 - (id<LifeModel>)model
@@ -28,6 +33,12 @@
   if (!_model)
     _model = [self makeModel];
   return _model;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+  [super viewDidAppear:animated];
+  [self initializeGrid];
 }
 
 - (void)initializeGrid
@@ -69,7 +80,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  [self initializeGrid];
+  //[self initializeGrid];
 }
 
 - (void)didReceiveMemoryWarning {

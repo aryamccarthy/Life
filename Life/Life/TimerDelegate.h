@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 @protocol TimerDelegate <NSObject>
-- (void)alterMode:(UIBarButtonItem *)sender;
+- (void)alterMode;
 - (void)setTarget:(id)target selector:(SEL)selector;
 - (void)setControl:(UIBarButtonItem *)control;
 @end

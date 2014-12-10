@@ -33,9 +33,8 @@ typedef NS_ENUM(NSUInteger, TimerControlMode) {
   return _mode;
 }
 
-- (void)alterMode:(UIBarButtonItem *)sender
+- (void)alterMode
 {
-  self.control = sender;
   if (self.mode == TimerControlModePaused) {
     [self enterFastMode];
   } else if (self.mode == TimerControlModeFast) {
@@ -52,11 +51,7 @@ typedef NS_ENUM(NSUInteger, TimerControlMode) {
   [self.timer invalidate];
   self.timer = nil;
 
-  NSLog(@"Paused.");
-  if ([self.control isKindOfClass:[TimerControlButton class]]) {
-    TimerControlButton *tc = (TimerControlButton *)self.control;
-    tc.title = [TimerControlButton pausedTitle];
-  }
+  [self updateLabel];
 }
 
 - (void)enterFastMode
@@ -66,12 +61,8 @@ typedef NS_ENUM(NSUInteger, TimerControlMode) {
   [self.timer invalidate];
   self.timer = [NSTimer timerWithTimeInterval:0.2f target:self.target selector:self.selector userInfo:nil repeats:YES];
   [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
-  NSLog(@"Fast.");
 
-  if ([self.control isKindOfClass:[TimerControlButton class]]) {
-    TimerControlButton *tc = (TimerControlButton *)self.control;
-    tc.title = [TimerControlButton fastTitle];
-  }
+  [self updateLabel];
 }
 
 - (void)enterSlowMode
@@ -81,11 +72,24 @@ typedef NS_ENUM(NSUInteger, TimerControlMode) {
   [self.timer invalidate];
   self.timer = [NSTimer timerWithTimeInterval:1.0f target:self.target selector:self.selector userInfo:nil repeats:YES];
   [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
-  NSLog(@"Slow.");
+
+  [self updateLabel];
+}
+
+- (void)updateLabel
+{
+  NSString *newText;
+  if (self.mode == TimerControlModePaused) {
+    newText = [TimerControlButton pausedTitle];
+  } else if (self.mode == TimerControlModeFast) {
+    newText = [TimerControlButton fastTitle];
+  } else if (self.mode == TimerControlModeSlow) {
+    newText = [TimerControlButton slowTitle];
+  }
 
   if ([self.control isKindOfClass:[TimerControlButton class]]) {
     TimerControlButton *tc = (TimerControlButton *)self.control;
-    tc.title = [TimerControlButton slowTitle];
+    tc.title = newText;
   }
 }
 

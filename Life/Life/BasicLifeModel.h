@@ -9,5 +9,5 @@
 #import "LifeModel.h"
 
 @interface BasicLifeModel : NSObject <LifeModel>
-
+- (instancetype)initWithRows:(NSUInteger)rows cols:(NSUInteger)cols;
 @end
