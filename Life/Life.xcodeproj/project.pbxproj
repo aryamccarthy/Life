@@ -17,6 +17,10 @@
 		422813FC1A364BF80047F49B /* NSMutableArray+initWithSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 422813FB1A364BF80047F49B /* NSMutableArray+initWithSize.m */; };
 		422814021A3650F80047F49B /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = 422814011A3650F80047F49B /* Grid.m */; };
 		422814051A3653F10047F49B /* BasicLifeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 422814041A3653F10047F49B /* BasicLifeModel.m */; };
+		423076831A37B403002867D8 /* LifeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 423076821A37B403002867D8 /* LifeViewController.m */; };
+		423076891A37B958002867D8 /* LifeCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 423076881A37B958002867D8 /* LifeCellView.m */; };
+		4230768D1A37C339002867D8 /* TimerControlButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4230768C1A37C339002867D8 /* TimerControlButton.m */; };
+		423076911A37C493002867D8 /* TimerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 423076901A37C493002867D8 /* TimerControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,16 @@
 		422814031A3653F10047F49B /* BasicLifeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicLifeModel.h; sourceTree = "<group>"; };
 		422814041A3653F10047F49B /* BasicLifeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicLifeModel.m; sourceTree = "<group>"; };
 		423076801A37A567002867D8 /* LifeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeModel.h; sourceTree = "<group>"; };
+		423076811A37B403002867D8 /* LifeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeViewController.h; sourceTree = "<group>"; };
+		423076821A37B403002867D8 /* LifeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeViewController.m; sourceTree = "<group>"; };
+		423076871A37B958002867D8 /* LifeCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeCellView.h; sourceTree = "<group>"; };
+		423076881A37B958002867D8 /* LifeCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeCellView.m; sourceTree = "<group>"; };
+		4230768A1A37BFFB002867D8 /* LifeViewControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeViewControllerProtocol.h; sourceTree = "<group>"; };
+		4230768B1A37C339002867D8 /* TimerControlButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerControlButton.h; sourceTree = "<group>"; };
+		4230768C1A37C339002867D8 /* TimerControlButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerControlButton.m; sourceTree = "<group>"; };
+		4230768E1A37C466002867D8 /* TimerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerDelegate.h; sourceTree = "<group>"; };
+		4230768F1A37C493002867D8 /* TimerControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerControl.h; sourceTree = "<group>"; };
+		423076901A37C493002867D8 /* TimerControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,9 +110,19 @@
 				422813D81A364A5E0047F49B /* AppDelegate.m */,
 				422813DA1A364A5E0047F49B /* ViewController.h */,
 				422813DB1A364A5E0047F49B /* ViewController.m */,
+				4230768E1A37C466002867D8 /* TimerDelegate.h */,
+				4230768F1A37C493002867D8 /* TimerControl.h */,
+				423076901A37C493002867D8 /* TimerControl.m */,
+				423076811A37B403002867D8 /* LifeViewController.h */,
+				423076821A37B403002867D8 /* LifeViewController.m */,
+				4230768A1A37BFFB002867D8 /* LifeViewControllerProtocol.h */,
+				423076871A37B958002867D8 /* LifeCellView.h */,
+				423076881A37B958002867D8 /* LifeCellView.m */,
 				422813F91A364B220047F49B /* LifeConstants.h */,
 				422813FA1A364BF80047F49B /* NSMutableArray+initWithSize.h */,
 				422813FB1A364BF80047F49B /* NSMutableArray+initWithSize.m */,
+				4230768B1A37C339002867D8 /* TimerControlButton.h */,
+				4230768C1A37C339002867D8 /* TimerControlButton.m */,
 				423076801A37A567002867D8 /* LifeModel.h */,
 				422814031A3653F10047F49B /* BasicLifeModel.h */,
 				422814041A3653F10047F49B /* BasicLifeModel.m */,
@@ -238,9 +262,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				423076891A37B958002867D8 /* LifeCellView.m in Sources */,
 				422813FC1A364BF80047F49B /* NSMutableArray+initWithSize.m in Sources */,
 				422814021A3650F80047F49B /* Grid.m in Sources */,
 				422813DC1A364A5E0047F49B /* ViewController.m in Sources */,
+				4230768D1A37C339002867D8 /* TimerControlButton.m in Sources */,
+				423076911A37C493002867D8 /* TimerControl.m in Sources */,
+				423076831A37B403002867D8 /* LifeViewController.m in Sources */,
 				422814051A3653F10047F49B /* BasicLifeModel.m in Sources */,
 				422813D91A364A5E0047F49B /* AppDelegate.m in Sources */,
 				422813D61A364A5E0047F49B /* main.m in Sources */,

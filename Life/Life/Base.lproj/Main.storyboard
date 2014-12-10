@@ -53,7 +53,7 @@
                                 <action selector="resetPressed:" destination="ugD-ql-FJH" id="JdA-d9-lIF"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Fast" id="bbu-gO-c9c">
+                        <barButtonItem key="rightBarButtonItem" title="Paused" id="bbu-gO-c9c" customClass="TimerControlButton">
                             <connections>
                                 <action selector="speedButtonPressed:" destination="ugD-ql-FJH" id="bfq-V1-mrd"/>
                             </connections>
@@ -73,10 +73,10 @@
             </objects>
             <point key="canvasLocation" x="2772" y="44"/>
         </scene>
-        <!--View Controller-->
+        <!--Life View Controller-->
         <scene sceneID="zRJ-Xa-ElE">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="RmA-6e-Tgv" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="RmA-6e-Tgv" customClass="LifeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YBx-f5-RUG"/>
                         <viewControllerLayoutGuide type="bottom" id="J02-UY-o4f"/>
@@ -90,7 +90,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bm7-Pe-pvm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2547" y="724"/>
+            <point key="canvasLocation" x="3285" y="59"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hdi-h8-Ydq">

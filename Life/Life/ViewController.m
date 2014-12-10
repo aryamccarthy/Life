@@ -10,31 +10,54 @@
 #import "LifeModel.h"
 #import "LifeConstants.h"
 #import "BasicLifeModel.h"
+#import "LifeViewControllerProtocol.h"
+#import "TimerDelegate.h"
+#import "TimerControl.h"
 
 @interface ViewController ()
-@property (nonatomic, strong) id<LifeModel> model;
+//@property (nonatomic, strong) id<LifeModel> model;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
-@property (strong, nonatomic) NSTimer *timer;
+//@property (strong, nonatomic) NSTimer *timer;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *speedLabel;
-@property (strong, nonatomic) NSArray *colors;
+@property (strong, nonatomic) id<TimerDelegate> timer;
+@property (weak, nonatomic) id<LifeViewControllerProtocol> lifeVC;
 @end
-
-UIColor* colorFromRGB(NSUInteger r, NSUInteger g, NSUInteger b)
-{
-  return [UIColor colorWithRed:r/255.0 green:g/255.0 blue: b/255.0 alpha:1.0f];
-}
 
 @implementation ViewController
 
-- (id<LifeModel>)model
+- (id<TimerDelegate>)makeTimer
+{
+  id<TimerDelegate> timer = [[TimerControl alloc] init];
+  [timer setTarget:self selector:@selector(update)];
+  [timer setControl:self.speedLabel];
+  return timer;
+}
+
+- (id<TimerDelegate>)timer
+{
+  if (!_timer) {
+    _timer = [self makeTimer];
+  }
+  return _timer;
+}
+
+- (id<LifeViewControllerProtocol>)lifeVC
+{
+  if (!_lifeVC) {
+    _lifeVC = [[self childViewControllers] firstObject];
+  }
+  return _lifeVC;
+}
+
+/*- (id<LifeModel>)model
 {
   if (!_model) {
     _model = [[BasicLifeModel alloc] init];
   }
   return _model;
-}
+}*/
 
-- (void)initializeGrid {
+/*- (void)initializeGrid {
   // Do any additional setup after loading the view, typically from a nib.
   UIColor *baseColor = colorFromRGB(13, 112, 0);
   for (int i = 0; i < self.model.size.height; ++i) {
@@ -44,19 +67,23 @@ UIColor* colorFromRGB(NSUInteger r, NSUInteger g, NSUInteger b)
       UIView *cell = [[UIView alloc] initWithFrame:CGRectMake(kCellDimension * j, kCellDimension * i, kCellDimension, kCellDimension)];
       //cell.backgroundColor = self.colors[age];
       cell.backgroundColor = baseColor;
-      cell.alpha = age == 0 ? 0 : 1 - (age-1.0)/kMaxAge;
+      cell.alpha = age == 0 ? 0 : 1 - pow((age-1.0)/kMaxAge, 0.5);
       [self.containerView addSubview:cell];
     }
   }
-}
+}*/
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  [self initializeGrid];
-  [self speedButtonPressed:self.speedLabel];
+  NSLog(@"%@", [[[self childViewControllers] firstObject] description]);
+//  [self initializeGrid];
+//  [self speedButtonPressed:self.speedLabel];
 }
 
 - (IBAction)speedButtonPressed:(UIBarButtonItem *)sender {
+  [self.timer alterMode:sender];
+}
+/*- (IBAction)speedButtonPressed:(UIBarButtonItem *)sender {
   if ([sender.title isEqualToString:@"Slow"]) {
     sender.title = @"Fast";
     [self.timer invalidate];
@@ -74,19 +101,38 @@ UIColor* colorFromRGB(NSUInteger r, NSUInteger g, NSUInteger b)
     self.timer = [NSTimer timerWithTimeInterval:1.0f target:self selector:@selector(update) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
   }
-}
+}*/
 
-- (IBAction)resetPressed:(UIBarButtonItem *)sender {
+/*- (IBAction)resetPressed:(UIBarButtonItem *)sender {
   self.model = [[BasicLifeModel alloc] init];
   [self matchDisplayToModel];
 
+}*/
+
+/*- (IBAction)tapped:(UITapGestureRecognizer *)sender {
+  [self update];
+}*/
+
+- (IBAction)resetPressed:(UIBarButtonItem *)sender {
+  [self reset];
 }
 
 - (IBAction)tapped:(UITapGestureRecognizer *)sender {
   [self update];
 }
 
-- (void)update
+- (void)reset {
+  [self.lifeVC reset];
+}
+
+- (void)update {
+  if (self.navigationController.visibleViewController == self) {
+    [self.lifeVC update];
+  }
+}
+
+
+/*- (void)update
 {
   if (self.navigationController.visibleViewController == self) {
     [self.model update];
@@ -123,13 +169,13 @@ UIColor* colorFromRGB(NSUInteger r, NSUInteger g, NSUInteger b)
     NSUInteger row = view.frame.origin.y / kCellDimension;
     NSUInteger col = view.frame.origin.x / kCellDimension;
     NSUInteger age = [[self.model valueAtRow:row and:col] unsignedIntegerValue];
-    view.alpha = age == 0 ? 0 : 1 - (age-1.0)/kMaxAge;
+    view.alpha = age == 0 ? 0 : 1 - pow((age-1.0)/kMaxAge, 0.5);
   }
 }
 
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
-}
+}*/
 
 @end
