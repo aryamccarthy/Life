@@ -33,7 +33,7 @@
 
 - (instancetype)init
 {
-  return [self initWithRows:kNumRows columns:kNumCols];
+  return [self initWithRows:1 columns:1];
 }
 
 - (instancetype)initWithRandomValues

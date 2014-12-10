@@ -15,7 +15,4 @@ static const size_t kMaxAge = 12;
 // equal the dimensions of the view.
 static const size_t kCellDimension = 20;
 
-static const size_t kNumRows = 504/kCellDimension;
-static const size_t kNumCols = 320/kCellDimension;
-
 #endif
