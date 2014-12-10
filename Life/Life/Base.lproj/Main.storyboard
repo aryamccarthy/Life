@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="feK-Pg-mbT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Life-->
@@ -22,25 +23,26 @@
                                     <segue destination="RmA-6e-Tgv" kind="embed" id="Pr0-Xd-BQ9"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rG-nQ-2q3">
+                                <rect key="frame" x="562" y="558" width="22" height="22"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="9cr-cp-FFT" kind="show" identifier="showAbout" id="qhN-Qk-QXa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="N63-w4-zL9" secondAttribute="trailing" id="BBe-Rb-H63"/>
                             <constraint firstItem="N63-w4-zL9" firstAttribute="bottom" secondItem="hXR-Ik-N0h" secondAttribute="top" id="FE0-yo-oo0"/>
-                            <constraint firstItem="N63-w4-zL9" firstAttribute="bottom" secondItem="hXR-Ik-N0h" secondAttribute="top" constant="-40" id="QpT-rk-GOc"/>
-                            <constraint firstItem="N63-w4-zL9" firstAttribute="top" secondItem="5Wz-or-wN6" secondAttribute="bottom" constant="216" id="eQ2-Su-PXs"/>
                             <constraint firstItem="N63-w4-zL9" firstAttribute="top" secondItem="5Wz-or-wN6" secondAttribute="bottom" id="eqy-E9-zZE"/>
-                            <constraint firstItem="N63-w4-zL9" firstAttribute="leading" secondItem="TPT-Vw-Ly5" secondAttribute="leading" constant="140" id="lJK-6I-gH2"/>
+                            <constraint firstItem="1rG-nQ-2q3" firstAttribute="trailing" secondItem="TPT-Vw-Ly5" secondAttribute="trailingMargin" id="hZV-HT-KhO"/>
+                            <constraint firstAttribute="bottom" secondItem="1rG-nQ-2q3" secondAttribute="bottom" constant="20" symbolic="YES" id="mYv-zh-3OQ"/>
                             <constraint firstItem="N63-w4-zL9" firstAttribute="leading" secondItem="TPT-Vw-Ly5" secondAttribute="leading" id="nKz-2c-VZ0"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="QpT-rk-GOc"/>
-                                <exclude reference="eQ2-Su-PXs"/>
-                                <exclude reference="lJK-6I-gH2"/>
-                            </mask>
-                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Oae-jc-Haf" appends="YES" id="uu7-2J-IhM"/>
                         </connections>
@@ -78,13 +80,78 @@
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="8DD-ao-iyc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Tz1-0D-s4m">
+                                <rect key="frame" x="282" y="249" width="37" height="37"/>
+                                <color key="color" red="0.050980392159999999" green="0.43921568630000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Tz1-0D-s4m" firstAttribute="centerX" secondItem="8DD-ao-iyc" secondAttribute="centerX" id="KMt-6l-ovE"/>
+                            <constraint firstAttribute="centerY" secondItem="Tz1-0D-s4m" secondAttribute="centerY" id="dXP-80-5SJ"/>
+                            <constraint firstAttribute="centerX" secondItem="Tz1-0D-s4m" secondAttribute="centerX" id="spN-4h-Ux3"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
+                    <connections>
+                        <outlet property="activity" destination="Tz1-0D-s4m" id="2LY-lX-f8p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bm7-Pe-pvm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3285" y="59"/>
+            <point key="canvasLocation" x="3549" y="-154"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="GKP-XB-ZIA">
+            <objects>
+                <viewController title="About" id="9cr-cp-FFT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="auf-8H-qnQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="yAC-8l-qay"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bZq-Qi-ecE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ya-gr-S65">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">This is an implementation of a hyped-up version of the game of Life, originally conceived by the British mathematician J.H. Conway in 1970 and popularized by Martin Gardner in his Scientific American column. The game is a simulation that models the life cycle of bacteria. Given an initial pattern, the game simulates the birth and death of future generations using simple rules. Think of it as a Lava Lamp for mathematicians.
+
+The game is played on a two-dimensional grid. Each grid location is either empty or occupied by a single cell. A location's neighbors are any cells in the surrounding eight adjacent locations.
+
+The simulation starts with an initial pattern of cells on the grid and computes successive generations of cells according to the following rules:
+
+1. A location that has zero or one neighbors will be empty in the next generation. If a cell was in that location, it dies of loneliness.
+2. A location with two neighbors is stable—that is, if it contained a cell, it still contains a cell. If it was empty, it's still empty.
+3. A location with three neighbors will contain a cell in the next generation. If it was unoccupied before, a new cell is born. If it currently contains a cell, the cell remains. Good times.
+4. A location with four or more neighbors will be empty in the next generation. If there was a cell in that location, it dies of overcrowding.
+5. The births and deaths that transform one generation to the next must all take effect simultaneously. Thus, when computing a new generation, new births and deaths in that generation don’t impact other births and deaths in that generation.
+
+Each generation that a cell lives through adds another year to its age. A cell that has just been born has age 1. If it makes it through the next generation, that cell has age 2, on the following iteration it would be 3 and so on. During the animation, cells will fade as they age to depict the cell life cycle.
+
+This project is an iOS port of my attempt at Stanford's CS106B Assignment 1: The Game of Life, by Julie Zelenski. 
+
+Description of Conway's Game of Life from http://web.stanford.edu/class/archive/cs/cs106b/cs106b.1132/handouts/07-Assignment-1-Life.pdf</mutableString>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0ya-gr-S65" firstAttribute="leading" secondItem="bZq-Qi-ecE" secondAttribute="leading" id="BYG-sl-RBb"/>
+                            <constraint firstAttribute="trailing" secondItem="0ya-gr-S65" secondAttribute="trailing" id="Jen-PJ-Ayi"/>
+                            <constraint firstItem="0ya-gr-S65" firstAttribute="bottom" secondItem="yAC-8l-qay" secondAttribute="top" id="gHw-sP-OrM"/>
+                            <constraint firstItem="0ya-gr-S65" firstAttribute="top" secondItem="bZq-Qi-ecE" secondAttribute="top" id="v3v-b4-iAq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3rx-2U-XEP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KSp-is-hxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3607" y="466"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hdi-h8-Ydq">

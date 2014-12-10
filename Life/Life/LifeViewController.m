@@ -14,6 +14,7 @@
 
 @interface LifeViewController ()
 @property (strong, nonatomic) id<LifeModel> model;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 @end
 
 @implementation LifeViewController
@@ -24,7 +25,6 @@
   [self.view layoutIfNeeded];
   NSUInteger rows = self.view.bounds.size.height / kCellDimension;
   NSUInteger cols = self.view.bounds.size.width / kCellDimension;
-  NSLog(@"%@", self.view.superview.class);
   return [[BasicLifeModel alloc] initWithRows:rows cols:cols];
 }
 
@@ -39,6 +39,7 @@
 {
   [super viewDidAppear:animated];
   [self initializeGrid];
+  [self.activity stopAnimating];
 }
 
 - (void)initializeGrid
@@ -80,6 +81,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  [self.activity startAnimating];
   //[self initializeGrid];
 }
 
