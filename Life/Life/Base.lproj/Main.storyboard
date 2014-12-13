@@ -114,26 +114,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ya-gr-S65">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0ya-gr-S65">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">This is an implementation of a hyped-up version of the game of Life, originally conceived by the British mathematician J.H. Conway in 1970 and popularized by Martin Gardner in his Scientific American column. The game is a simulation that models the life cycle of bacteria. Given an initial pattern, the game simulates the birth and death of future generations using simple rules. Think of it as a Lava Lamp for mathematicians.
+                                <string key="text">This is an implementation of a hyped-up version of the game of Life, originally conceived by the British mathematician J.H. Conway in 1970 and popularized by Martin Gardner in his Scientific American column. The game is a simulation that models the life cycle of bacteria. Given an initial pattern, the game simulates the birth and death of future generations using simple rules. Think of it as a Lava Lamp for mathematicians.
 
-The game is played on a two-dimensional grid. Each grid location is either empty or occupied by a single cell. A location's neighbors are any cells in the surrounding eight adjacent locations.
-
-The simulation starts with an initial pattern of cells on the grid and computes successive generations of cells according to the following rules:
-
-1. A location that has zero or one neighbors will be empty in the next generation. If a cell was in that location, it dies of loneliness.
-2. A location with two neighbors is stable—that is, if it contained a cell, it still contains a cell. If it was empty, it's still empty.
-3. A location with three neighbors will contain a cell in the next generation. If it was unoccupied before, a new cell is born. If it currently contains a cell, the cell remains. Good times.
-4. A location with four or more neighbors will be empty in the next generation. If there was a cell in that location, it dies of overcrowding.
-5. The births and deaths that transform one generation to the next must all take effect simultaneously. Thus, when computing a new generation, new births and deaths in that generation don’t impact other births and deaths in that generation.
-
-Each generation that a cell lives through adds another year to its age. A cell that has just been born has age 1. If it makes it through the next generation, that cell has age 2, on the following iteration it would be 3 and so on. During the animation, cells will fade as they age to depict the cell life cycle.
-
-This project is an iOS port of my attempt at Stanford's CS106B Assignment 1: The Game of Life, by Julie Zelenski. 
-
-Description of Conway's Game of Life from http://web.stanford.edu/class/archive/cs/cs106b/cs106b.1132/handouts/07-Assignment-1-Life.pdf</mutableString>
+This project is an iOS port of my attempt at Stanford's CS106B Assignment 1: The Game of Life, by Julie Zelenski: http://web.stanford.edu/class/archive/cs/cs106b/cs106b.1132/handouts/07-Assignment-1-Life.pdf</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
@@ -147,7 +133,9 @@ Description of Conway's Game of Life from http://web.stanford.edu/class/archive/
                             <constraint firstItem="0ya-gr-S65" firstAttribute="top" secondItem="bZq-Qi-ecE" secondAttribute="top" id="v3v-b4-iAq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="3rx-2U-XEP"/>
+                    <navigationItem key="navigationItem" title="About" id="3rx-2U-XEP">
+                        <barButtonItem key="backBarButtonItem" title="Return" id="ffg-dP-GMI"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KSp-is-hxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
